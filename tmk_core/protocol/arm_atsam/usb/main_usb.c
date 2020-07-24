@@ -19,10 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "conf_usb.h"
 #include "udd.h"
 
-#ifdef RAW_ENABLE
-#    include "raw_hid.h"
-#endif
-
 uint8_t keyboard_protocol = 1;
 
 void main_suspend_action(void) { ui_powerdown(); }
@@ -91,6 +87,4 @@ bool          main_raw_enable(void) {
 }
 
 void main_raw_disable(void) { main_b_raw_enable = false; }
-
-void main_raw_receive(uint8_t *buffer, uint8_t len) { raw_hid_receive(buffer, len); }
 #endif
