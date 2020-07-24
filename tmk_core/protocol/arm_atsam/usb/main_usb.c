@@ -31,7 +31,6 @@ void main_remotewakeup_enable(void) { ui_wakeup_enable(); }
 
 void main_remotewakeup_disable(void) { ui_wakeup_disable(); }
 
-#ifdef KBD
 volatile bool main_b_kbd_enable = false;
 bool          main_kbd_enable(void) {
     main_b_kbd_enable = true;
@@ -39,9 +38,8 @@ bool          main_kbd_enable(void) {
 }
 
 void main_kbd_disable(void) { main_b_kbd_enable = false; }
-#endif
 
-#ifdef NKRO
+#ifdef NKRO_ENABLE
 volatile bool main_b_nkro_enable = false;
 bool          main_nkro_enable(void) {
     main_b_nkro_enable = true;
@@ -51,7 +49,7 @@ bool          main_nkro_enable(void) {
 void main_nkro_disable(void) { main_b_nkro_enable = false; }
 #endif
 
-#ifdef EXK
+#ifdef EXTRAKEY_ENABLE
 volatile bool main_b_exk_enable = false;
 bool          main_exk_enable(void) {
     main_b_exk_enable = true;
@@ -61,7 +59,7 @@ bool          main_exk_enable(void) {
 void main_exk_disable(void) { main_b_exk_enable = false; }
 #endif
 
-#ifdef CON
+#ifdef CONSOLE_ENABLE
 volatile bool main_b_con_enable = false;
 bool          main_con_enable(void) {
     main_b_con_enable = true;
@@ -71,7 +69,7 @@ bool          main_con_enable(void) {
 void main_con_disable(void) { main_b_con_enable = false; }
 #endif
 
-#ifdef MOU
+#ifdef MOUSE_ENABLE
 volatile bool main_b_mou_enable = false;
 bool          main_mou_enable(void) {
     main_b_mou_enable = true;
@@ -81,7 +79,7 @@ bool          main_mou_enable(void) {
 void main_mou_disable(void) { main_b_mou_enable = false; }
 #endif
 
-#ifdef RAW
+#ifdef RAW_ENABLE
 volatile bool main_b_raw_enable = false;
 bool          main_raw_enable(void) {
     main_b_raw_enable = true;

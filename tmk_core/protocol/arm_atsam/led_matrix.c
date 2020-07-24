@@ -318,7 +318,7 @@ void flush(void) {
     pomod = 0;
     if (led_animation_speed != 0)  // Avoid DIV0
     {
-        pomod = (float)((g_rgb_counters.tick / 10) % (uint32_t)(1000.0f / led_animation_speed)) / 10.0f * led_animation_speed;
+        pomod = (float)((g_rgb_timer / 10) % (uint32_t)(1000.0f / led_animation_speed)) / 10.0f * led_animation_speed;
     }
     pomod *= 100.0f;
     pomod = (uint32_t)pomod % 10000;
@@ -398,7 +398,7 @@ const rgb_matrix_driver_t rgb_matrix_driver = {.init = init, .flush = flush, .se
 ==============================================================================*/
 
 #ifdef USE_MASSDROP_CONFIGURATOR
-// Ported from Massdrop QMK Github Repo
+// Ported from Massdrop QMK GitHub Repo
 
 // TODO?: wire these up to keymap.c
 uint8_t led_animation_orientation = 0;
